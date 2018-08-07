@@ -1,4 +1,5 @@
 package def
+var Md5Salt string = "Dh@)!^o5l3!%Op0"
 var Outtradeno="afdewfdsfew"
 const (
 	WEIXINAPPID= "wx6b1ac54ae400c419"
