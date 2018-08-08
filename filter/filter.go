@@ -1,12 +1,12 @@
 package filter
 
 import (
-	"strings"
-	"net/http"
+	"io/ioutil"
 	"github.com/astaxie/beego/context"
+	"ChickGame/util"
 )
 
-/*var BaseFilter = func(ctx *context.Context) {
+var BaseFilter = func(ctx *context.Context) {
 	if ctx.Request.RequestURI == "/return" || ctx.Request.RequestURI == "/login" {
 		return
 	} else {
@@ -18,10 +18,4 @@ import (
 
 		}
 	}
-}*/
-func TransparentStatic(ctx *context.Context) {
-	if strings.Index(ctx.Request.URL.Path, "v1/") >= 0 {
-		return
-	}
-	http.ServeFile(ctx.ResponseWriter, ctx.Request, "static/"+ctx.Request.URL.Path)
 }

@@ -3,11 +3,12 @@ package routers
 import (
 	"ChickGame/controllers"
 	"github.com/astaxie/beego"
+	."ChickGame/filter"
 )
 
 func init() {
 
-	/*beego.InsertFilter("/*", beego.BeforeRouter,BaseFilter)*/
+	beego.InsertFilter("/*", beego.BeforeRouter,BaseFilter)
 
 
 	//登陆api
@@ -24,7 +25,6 @@ func init() {
 
 	//下面是微信登陆
 	beego.Router("/url", &controllers.MainController{},"get:Url")
-
 	beego.Router("/test", &controllers.MainController{},"get:Get")
 	beego.Router("/return", &controllers.MainController{},"post:GetUrl")
 }

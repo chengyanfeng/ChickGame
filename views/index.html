@@ -14,6 +14,7 @@
 <button class="btn btn_primary" id="startRecord">开始录音</button>
 <button class="btn btn_primary" id="stopRecord">停止录音</button>
 <button class="btn btn_primary" id="playVoice">播放刚刚录音的声音</button>
+<button class="btn btn_primary" id="chooseWXPay">微信支付</button>
 
 <span class="desc">获取地理位置接口</span>
 <button class="btn btn_primary" id="getLocation">getLocation</button>
@@ -62,7 +63,9 @@
             'playVoice',
             'onMenuShareAppMessage',
             'getLocation',
-            'onMenuShareQQ'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            'onMenuShareQQ',
+            'chooseWXPay'
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 
 </script>
@@ -104,7 +107,6 @@
             link: 'http://chengyanfeng.natapp1.cc/main/index',
             imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514438682725&di=7624aa8b34c3d92a2d2b95254aff2450&imgtype=0&src=http%3A%2F%2Fvpic.video.qq.com%2F3170316%2Fb03322rccwa_ori_3.jpg',
             trigger: function (res) {
-
                 alert('分享前调用的方法');
             },
             success: function (res) {
@@ -118,7 +120,6 @@
             }
         });
 //分享到QQ里面
-
         wx.onMenuShareQQ({
             title: '我是分享到qq里面的', // 分享标题
             desc: '这个是测试', // 分享描述
@@ -143,7 +144,6 @@
 
 
     });
-
 
 </script>
 
@@ -257,7 +257,25 @@
             }
         });
     });
-
+    $('#chooseWXPay').click(function () {
+    //微信支付
+    wx.chooseWXPay({
+        timestamp: 0, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+        nonceStr: '', // 支付签名随机串，不长于 32 位
+        package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
+        signType: '', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+        paySign: '', // 支付签名
+        success: function (res) {
+// 支付成功后的回调函数
+        },
+        cancel: function (res) {
+            alert('取消付款');
+        },
+        fail: function (res) {
+            alert(JSON.stringify(res));
+        }
+    });
+    });
 
 </script>
 
