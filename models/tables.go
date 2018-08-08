@@ -15,8 +15,6 @@ type User struct {
 	PhoneNumber int       `json:"size:15;column:phoneNumber"`
 	Time        time.Time `json:"column:time"`
 }
-func (User) TableName() string {
-	return "user"
-}
+
 
 

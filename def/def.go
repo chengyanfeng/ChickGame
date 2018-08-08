@@ -2,9 +2,9 @@ package def
 var Md5Salt string = "Dh@)!^o5l3!%Op0"
 var Outtradeno="afdewfdsfew"
 const (
-	WEIXINAPPID= "wx6b1ac54ae400c419"
+	WEIXINAPPID= "wx53d52d70ccd6439f"
 	WEIXINMCH_ID= "1484906012"
-	WEIXINKEY = "1f0da449dd471279c5c847f000ab61db"
+	WEIXINKEY = "dfb513840c45e387cd869af3887e69cb"
 	WEIXINRANDSTR= "1234567890qwertyuioplkjhgfdsazxcvbnm"
 
 

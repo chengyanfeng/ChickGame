@@ -5,14 +5,13 @@ import (
 	"github.com/astaxie/beego"
 	"ChickGame/def"
 	"ChickGame/util"
-	."ChickGame/db"
 )
-var gorm Gorm
-func Init(){
+func init(){
 	util.InitCache()
 }
 func main() {
-
+	beego.SetStaticPath("/MP_verify_oSClQLOUTyzPRg6o.txt","MP_verify_oSClQLOUTyzPRg6o.txt")
 	def.Outtradeno=beego.AppConfig.String("outtradeno")
 	beego.Run()
 }
+

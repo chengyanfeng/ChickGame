@@ -52,11 +52,11 @@ func JsonEncode(v interface{}) (r string) {
 	r = string(b)
 	return
 }
-//获取token和openid
+//获取登陆的token和openid
 func GetTokenAndOpenid(code string) (access_token, openid string) {
 
 	//获取微信token
-	response_token, _ := http.Get("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + def.WEIXINAPPID + "&secret=" + def.WEIXINKEY + "&" + code + "&grant_type=authorization_code")
+	response_token, _ := http.Get("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + def.WEIXINAPPID + "&secret=" + def.WEIXINKEY + "&code=" + code + "&grant_type=authorization_code")
 	//关闭链接
 	defer response_token.Body.Close()
 	token_body, _ := ioutil.ReadAll(response_token.Body)
@@ -86,7 +86,9 @@ func checkToken(access_token, openid string) bool {
 	p := *JsonDecode([]byte(string(checkToken_body)))
 	errmsg := p["errmsg"].(string)
 	if errmsg == "ok" {
+		S("pay_token",access_token)
 		return true
+
 	} else {
 		return false
 	}
@@ -103,7 +105,30 @@ func GetUserInfo(code string) (p *map[string]interface{}) {
 	}
 
 
-
+//根据token来获取tick
+func GetTicket(token string)string{
+	//从token获取微信ticket
+	response_ticket, _ := http.Get("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=" + token + "&type=jsapi")
+	defer response_ticket.Body.Close()
+	ticket_body, _ := ioutil.ReadAll(response_ticket.Body)
+	p := *JsonDecode([]byte(string(ticket_body)))
+	ticket := p["ticket"].(string)
+	S("ticket", ticket, 100*time.Minute)
+	fmt.Println("ticket 是从重新拿的")
+	return string(ticket)
+}
+//
+func GetForwardToken()(token string)  {
+	//获取微信转发token
+	response_token, _ := http.Get("https://api.weixin.qq.com/cgi-bin/token?appid=wx53d52d70ccd6439f&secret=dfb513840c45e387cd869af3887e69cb&grant_type=client_credential", )
+	defer response_token.Body.Close()
+	token_body, _ := ioutil.ReadAll(response_token.Body)
+	p := *JsonDecode([]byte(string(token_body)))
+	token = p["access_token"].(string);
+	S("forword_token",token)
+	fmt.Println("这是从转发获取拿的token")
+	return
+}
 
 //生成随机字符串
 func GetRandomString() string {

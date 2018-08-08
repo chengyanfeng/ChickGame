@@ -1,19 +1,21 @@
-package datasource
+package models
 
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	. "ChickGame/util"
-	"ChickGame/models"
 	"fmt"
-
 )
 
 var Db *gorm.DB
 
 type Gorm struct {
 }
-func (c *Gorm) Init() {
+
+func (User) TableName() string {
+	return "user"
+}
+func (c *Gorm) init() {
 	var err error
 	conn := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v?charset=utf8&parseTime=True&loc=Local",
 		Conn["username"],
@@ -23,15 +25,16 @@ func (c *Gorm) Init() {
 		Conn["name"],
 	)
 	Db, err = gorm.Open("mysql", conn)
-	//禁止用复数
-	Db.SingularTable(true)
+	/*//禁止用复数
+	Db.SingularTable(true)*/
 	if err != nil {
 		panic(err.Error())
 	}
-	if Db.HasTable("dungouset") {
-
+	if Db.HasTable("user") {
+	fmt.Print("数据表已经存在")
 	} else {
-		Db.CreateTable(&models.User{})
+		fmt.Print("aaaaa")
+		Db.CreateTable(&User{})
 	}
 
 }

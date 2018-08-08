@@ -3,10 +3,10 @@ package controllers
 import (
 	"time"
 	"ChickGame/util"
-	."ChickGame/db"
 	"io/ioutil"
 	"github.com/astaxie/beego"
 	"fmt"
+	"ChickGame/models"
 )
 
 type Authentication struct {
@@ -23,17 +23,16 @@ func (c *Authentication) Login() {
 	p := bodyToMap(c)
 	auth := p["auth"]
 	c.Auth = auth.(string)
-	Db.Where(p).Find(&sets)
+	user:=&models.User{}
+	user.City="aaaa"
+	models.Db.Create(user)
 	c.Time = time.Now()
 	util.S("auth", c)
 	a := util.S("auth")
 	fmt.Print(a)
 }
 
-
 //微信登陆
-
-
 
 //退出
 func (c *Authentication) Exit() {

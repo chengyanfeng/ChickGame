@@ -18,7 +18,7 @@ import (
 var localCache cache.Cache
 type P map[string]interface{}
 func InitCache() {
-	c, err := cache.NewCache("memory", `{"interval":60}`)
+	c, err := cache.NewCache("memory", `{"interval":3600}`)
 	//c, err := cache.NewCache("file", `{"CachePath":"./dhcache","FileSuffix":".cache","DirectoryLevel":2,"EmbedExpiry":120}`)
 	if err != nil {
 		Error(err)

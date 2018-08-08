@@ -17,8 +17,35 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
-	c.Data["json"] = "beego.me"
+	cd:=c.GetString("code")
+	p:=util.GetUserInfo(cd)
+	fmt.Print(p)
+	c.Data["json"] = p
 	c.ServeJSON()
+}
+//微信跳转页面
+func (c *MainController) Url() {
+		url:="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx53d52d70ccd6439f&redirect_uri=http%3a%2f%2fchengyanfeng.s1.natapp.cc%2ftest&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
+	c.Redirect(url, 301)
+
+}
+
+//微信获取ticker
+func (c *MainController)GetTicker() {
+	token:= util.S("forword_token")
+	tick:= util.GetTicket(util.ToString(token))
+	fmt.Print(tick,"---------------tick----------")
+	c.Ctx.WriteString(string(tick))
+}
+//微信获取的转发token
+func (c *MainController)GetToken() {
+	Forwardtoken:=util.GetForwardToken()
+	c.Ctx.WriteString(util.ToString(Forwardtoken))
+}
+
+
+func (c *MainController)GetIndex(){
+	c.TplName="index.html"
 }
 
 // 是异步返回的url，加上验证！！！是支付宝服务器直接访问的路由， 返回给支付宝服务器的必须是“success”和其他
