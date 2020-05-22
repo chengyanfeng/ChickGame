@@ -12,7 +12,7 @@ func init(){
 func main() {
 	fmt.a
 	fmt.p
-	fm
+	
 	.pr
 	beego.SetStaticPath("/MP_verify_oSClQLOUTyzPRg6o.txt","MP_verify_oSClQLOUTyzPRg6o.txt")
 	def.Outtradeno=beego.AppConfig.String("outtradeno")
