@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa585105-077f-4b5b-b548-3303e29d1b69" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,14 +175,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1590110617980">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1590110617980" />
     <state x="0" y="129" key="MergeDialog" timestamp="1590073992169">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="129" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590073992169" />
-    <state x="245" y="384" key="MultipleFileMergeDialog" timestamp="1590073992184">
+    <state x="245" y="384" key="MultipleFileMergeDialog" timestamp="1590110275077">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="245" y="384" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590073992184" />
+    <state x="245" y="384" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590110275077" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
