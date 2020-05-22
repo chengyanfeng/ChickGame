@@ -187,6 +187,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="245" y="384" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590111498709" />
+    <state x="372" y="0" key="RollbackChangesDialog" timestamp="1590112140356">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="372" y="0" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1590112140356" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
